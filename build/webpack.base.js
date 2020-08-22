@@ -1,15 +1,12 @@
-const path = require('path')
-const VueLoaderPlugin = require("vue-loader/lib/plugin");
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const ProgressBarPlugin = require('progress-bar-webpack-plugin')
 
 module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.jsx?$/,
         loader: 'babel-loader',
-        options: {
-          sourceMap: true
-        },
         exclude: /node_modules/
       },
       {
@@ -22,6 +19,7 @@ module.exports = {
     extensions: ['.js', 'vue']
   },
   plugins: [
-    new VueLoaderPlugin()
+    new ProgressBarPlugin(),
+    new VueLoaderPlugin(),
   ]
 }

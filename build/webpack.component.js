@@ -1,18 +1,19 @@
 const path = require('path')
 const {merge} = require('webpack-merge')
-const TerserPlugin = require('terser-webpack-plugin')
 const baseConfig = require('./webpack.base')
 
 module.exports = merge(baseConfig,{
   mode: 'production',
-  entry: path.resolve(__dirname, '../src/index.js'),
+  // TODO
+  entry: {
+    button: '../src/package/Button/index.js'
+  },
   output: {
     path: path.resolve(__dirname, '../lib'),
-    filename: 'index.js',
+    filename: '[name].js',
+    chunkFilename: '[id].js',
     library: 'wing',
-    libraryTarget: 'umd',
-    umdNamedDefine: true,
-    globalObject: "this"
+    libraryTarget: 'commonjs2',
   },
   externals: {
     vue: {
@@ -23,6 +24,6 @@ module.exports = merge(baseConfig,{
     }
   },
   optimization: {
-    minimizer: [new TerserPlugin()],
+    minimize: false
   }
 })
