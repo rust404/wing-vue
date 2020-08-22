@@ -4,6 +4,8 @@
   "description": "Wing，一个轻量级的vue组件库",
   "main": "index.js",
   "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs",
     "dev": "webpack-dev-server --inline --config build/webpack.dev.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -24,8 +26,11 @@
     "@babel/preset-env": "^7.5.5",
     "babel-loader": "^8.0.6",
     "html-webpack-plugin": "^4.3.0",
+    "node-sass": "^4.14.1",
+    "sass-loader": "^9.0.3",
     "vue-loader": "^15.9.3",
     "vue-template-compiler": "^2.6.12",
+    "vuepress": "^1.5.3",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0",
     "webpack-merge": "^5.1.2"

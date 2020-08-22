@@ -1,8 +1,13 @@
-import Vue from 'vue';
-import App from "./App.vue";
+import Button from "./packages/Button";
 
-new Vue({
-  render(h) {
-    return h(App)
-  }
-}).$mount('#app')
+const components = {
+  WButton: Button
+}
+
+const install = function(Vue, options = {}) {
+  Object.keys(components).forEach(key => {
+    Vue.component(key, components[key])
+  })
+}
+
+export default install
