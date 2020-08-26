@@ -1,4 +1,4 @@
-import WingUI from '../../src/index'
+import WingUI from '../../src/wing'
 
 export default ({
   Vue,

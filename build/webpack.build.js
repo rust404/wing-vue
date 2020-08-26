@@ -2,13 +2,14 @@ const path = require('path')
 const {merge} = require('webpack-merge')
 const TerserPlugin = require('terser-webpack-plugin')
 const baseConfig = require('./webpack.base')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = merge(baseConfig,{
   mode: 'production',
-  entry: path.resolve(__dirname, '../src/index.js'),
+  entry: path.resolve(__dirname, '../src/wing.js'),
   output: {
     path: path.resolve(__dirname, '../lib'),
-    filename: 'index.js',
+    filename: 'wing.js',
     library: 'wing',
     libraryTarget: 'umd',
     umdNamedDefine: true,
@@ -24,5 +25,10 @@ module.exports = merge(baseConfig,{
   },
   optimization: {
     minimizer: [new TerserPlugin()],
-  }
+  },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: 'wing.css'
+    })
+  ]
 })

@@ -3,7 +3,7 @@
 </template>
 
 <script>
-  export default {
-    name: 'w-button'
-  }
+export default {
+  name: 'w-button'
+}
 </script>

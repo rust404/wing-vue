@@ -2,11 +2,12 @@
   "name": "wing-vue",
   "version": "0.0.1",
   "description": "Wing，一个轻量级的vue组件库",
-  "main": "index.js",
+  "main": "lib/wing.js",
   "scripts": {
     "clean": "rimraf lib",
     "dist": "npm run clean",
     "build:packages": "npm run clean && webpack --config build/webpack.component.js",
+    "build:all": "npm run clean && webpack --config build/webpack.build.js",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "dev": "webpack-dev-server --inline --config build/webpack.dev.js",
