@@ -1,6 +1,9 @@
 module.exports = {
   title: 'Wing UI',
   description: "一个轻量级的Vue UI组件库",
+  scss: {
+    additionalData: `@import "../../styles/index.scss";`,
+  },
   themeConfig: {
     nav: [
       { text: '主页', link: '/' },

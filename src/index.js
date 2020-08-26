@@ -1,7 +1,7 @@
-import Button from "./packages/Button";
+import Button from "./packages/button";
 
 const components = {
-  WButton: Button
+  [Button.name]: Button
 }
 
 const install = function(Vue, options = {}) {

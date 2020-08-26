@@ -4,6 +4,6 @@
 
 <script>
   export default {
-    name: 'Button'
+    name: 'w-button'
   }
 </script>
