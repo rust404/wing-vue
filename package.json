@@ -11,7 +11,7 @@
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "dev": "webpack-dev-server --inline --config build/webpack.dev.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mochapack --webpack-config ./build/webpack.test.js --require test/setup.js src/packages/**/__test__/**.spec.js"
   },
   "keywords": [
     "wing",
@@ -28,12 +28,20 @@
     "@babel/core": "^7.5.5",
     "@babel/plugin-transform-runtime": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
+    "@vue/test-utils": "^1.0.4",
     "babel-loader": "^8.0.6",
+    "chai": "^4.2.0",
     "css-loader": "^4.2.2",
+    "expect": "^26.4.2",
     "html-webpack-plugin": "^4.3.0",
+    "jsdom": "^16.4.0",
+    "jsdom-global": "^3.0.2",
     "mini-css-extract-plugin": "^0.10.0",
+    "mocha": "^8.1.2",
+    "mochapack": "^2.0.3",
     "postcss-loader": "^3.0.0",
     "progress-bar-webpack-plugin": "^2.1.0",
+    "puppeteer": "^5.2.1",
     "rimraf": "^3.0.2",
     "sass": "^1.26.10",
     "sass-loader": "^10.0.1",
@@ -44,6 +52,7 @@
     "vuepress": "^1.5.3",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0",
-    "webpack-merge": "^5.1.2"
+    "webpack-merge": "^5.1.2",
+    "webpack-node-externals": "^2.5.2"
   }
 }
