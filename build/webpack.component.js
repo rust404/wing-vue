@@ -1,14 +1,20 @@
 const path = require('path')
 const {merge} = require('webpack-merge')
 const baseConfig = require('./webpack.base')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const {packages} = require(path.resolve(__dirname, '../src/components.json'))
 
-module.exports = merge(baseConfig,{
+const entry = {}
+if (packages) {
+  packages.forEach(pkg => {
+    const name = pkg.name.toLowerCase()
+    entry[name] = path.resolve(__dirname, `../src/packages/${name}`)
+  })
+}
+
+module.exports = merge(baseConfig, {
   mode: 'production',
-  // TODO
-  entry: {
-    button: path.resolve(__dirname, '../src/packages/button/index.js')
-  },
+  entry,
   output: {
     path: path.resolve(__dirname, '../lib/packages'),
     filename: '[name]/index.js',
