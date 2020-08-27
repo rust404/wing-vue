@@ -2,6 +2,11 @@ const components = require('../src/components.json')
 const path = require('path')
 const fs = require('fs')
 const inquirer = require('inquirer')
+const {parse} = require('@babel/parser');
+const generate = require('@babel/generator').default;
+const traverse = require('@babel/traverse').default
+const t = require('@babel/types');
+
 
 const componentConfig = {
   name: 'Message',
@@ -12,12 +17,35 @@ const componentConfig = {
 
 run()
 
+function transformEntry(config) {
+  const entry = path.resolve(__dirname, '../src/wing.js')
+  const code = fs.readFileSync(entry).toString()
+  const ast = parse(code, {
+    sourceType: 'module'
+  });
+  traverse(ast, {
+    VariableDeclaration(p) {
+      const x = parse(`import ${config.name} from './packages/${config.name.toLowerCase()}';`, {
+        sourceType: 'module'
+      })
+      if (p.node && p.node.declarations && p.node.declarations[0]
+        && p.node.declarations[0].id && p.node.declarations[0].id.name === 'components') {
+        p.insertBefore(x.program.body[0])
+        p.node.declarations[0].init.elements.push(t.identifier(config.name))
+      }
+    }
+  })
+  const output = generate(ast, { /* options */}, code);
+  fs.writeFileSync(entry, output.code)
+}
+
 function run() {
   let componentName = ''
   getConfig().then(config => {
     componentName = config.name
     return createComponentFiles(config)
   }).then((config) => {
+    transformEntry(config)
     return addComponentToJSON(config)
   }).catch((err) => {
     console.log(err)
