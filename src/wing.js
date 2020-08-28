@@ -4,10 +4,13 @@ const components = [
   Button
 ]
 
-const install = function(Vue, options = {}) {
+const install = function(Vue) {
   components.forEach(component => {
     Vue.use(component)
   })
 }
 
-export default install
+export {
+  install as default,
+  Button
+}
