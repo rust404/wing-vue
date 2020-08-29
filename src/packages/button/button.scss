@@ -1,5 +1,108 @@
 @import '../../styles/index.scss';
 
-button {
-  color: $blue;
+@mixin btn-variant($border-color, $background, $color) {
+  border-color: $border-color;
+  background: $background;
+  color: $color;
+}
+
+@mixin btn-active-variant($border-color, $background) {
+  border-color: darken($border-color, 20%);
+  background: darken($background, 20%);
+}
+
+.wing-btn {
+  display: inline-block;
+  height: $btn-height-base;
+  padding: $btn-padding-base;
+  border-radius: $border-radius-base;
+  border: $btn-border-width $btn-border-style $btn-default-border-color;
+  line-height: $btn-line-height-base;
+  outline: none;
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+
+  &.is-disabled {
+    &,
+    &:hover,
+    &:focus,
+    &:active {
+      @include btn-variant($btn-disabled-border-color, $btn-disabled-bg, $btn-disabled-color);
+      cursor: not-allowed;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    opacity: 0.8;
+  }
+
+  &-default {
+    @include btn-variant($btn-default-border-color, $btn-default-bg, $btn-default-color);
+
+    &:hover,
+    &:focus {
+      opacity: 1;
+      border-color: $primary-color;
+      color: $primary-color;
+    }
+
+    &:active {
+      color: darken($primary-color, 20%);
+      border-color: darken($primary-color, 20%);
+    }
+  }
+
+  &-primary {
+    @include btn-variant($btn-primary-border-color, $btn-primary-bg, $btn-primary-color);
+
+    &:active {
+      @include btn-active-variant($btn-primary-border-color, $btn-primary-bg);
+    }
+  }
+
+
+  &-danger {
+    @include btn-variant($btn-danger-border-color, $btn-danger-bg, $btn-danger-color);
+
+    &:active {
+      @include btn-active-variant($btn-danger-border-color, $btn-danger-bg);
+    }
+  }
+
+  &-info {
+    @include btn-variant($btn-info-border-color, $btn-info-bg, $btn-info-color);
+
+    &:active {
+      @include btn-active-variant($btn-info-border-color, $btn-info-bg);
+    }
+  }
+
+  &-success {
+    @include btn-variant($btn-success-border-color, $btn-success-bg, $btn-success-color);
+
+    &:active {
+      @include btn-active-variant($btn-success-border-color, $btn-success-bg);
+    }
+  }
+
+  &-warning {
+    @include btn-variant($btn-warning-border-color, $btn-warning-bg, $btn-warning-color);
+
+    &:active {
+      @include btn-active-variant($btn-warning-border-color, $btn-warning-bg);
+    }
+  }
+
+  &-lg {
+    height: $btn-height-lg;
+    font-size: $btn-font-size-lg;
+    padding: $btn-padding-lg;
+  }
+
+  &-sm {
+    height: $btn-height-sm;
+    font-size: $btn-font-size-sm;
+    padding: $btn-padding-sm;
+  }
 }
