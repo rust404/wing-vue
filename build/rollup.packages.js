@@ -21,7 +21,7 @@ Object.entries(entry).forEach(([name, path]) => {
     ...baseConfig,
     input: path,
     output: {
-      file: `./lib/packages/${name}/${name}.js`,
+      file: `./lib/packages/${name}.js`,
       format: 'umd',
       name,
       globals: baseConfig.globals
@@ -36,7 +36,7 @@ Object.entries(entry).forEach(([name, path]) => {
       BabelPlugin(baseConfig.plugins.babel),
       commonjs(),
       scss({
-        output: `./lib/packages/${name}/style.css`
+        output: `./lib/packages/${name}.css`
       }),
     ]
   }

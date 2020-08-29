@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Wing，一个轻量级的vue组件库",
   "main": "./lib/wing.umd.js",
-  "module": "./src/wing.js",
+  "module": "./lib/wing.esm.js",
   "unpkg": "./lib/wing.min.js",
   "sideEffects": [
     "*.scss",
