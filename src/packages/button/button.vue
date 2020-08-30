@@ -1,12 +1,17 @@
 <template>
   <button :class="className">
+    <w-icon spin name="loading" class="loading-icon" v-if="loading"/>
     <span><slot/></span>
   </button>
 </template>
 
 <script>
+import Icon from '../icon'
 export default {
   name: 'w-button',
+  components: {
+    WIcon: Icon
+  },
   props: {
     type: {
       type: String,
@@ -24,7 +29,8 @@ export default {
       validator(prop) {
         return ['lg', 'sm', ''].indexOf(prop) !== -1
       }
-    }
+    },
+    loading: Boolean
   },
   computed: {
     className() {
@@ -33,6 +39,7 @@ export default {
         [`wing-btn-${this.type}`]: this.type,
         [`wing-btn-${this.size}`]: this.size,
         'is-disabled': this.disabled,
+        'is-loading': this.loading,
       }
     }
   }

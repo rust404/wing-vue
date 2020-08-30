@@ -11,8 +11,23 @@
   background: darken($background, 20%);
 }
 
+@mixin btn-loading-variant($border-color, $background, $color) {
+  &.is-loading {
+    &,
+    &:hover,
+    &:focus,
+    &:active {
+      cursor: default;
+      opacity: 0.6;
+      @include btn-variant($border-color, $background, $color)
+    }
+  }
+}
+
 .wing-btn {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  vertical-align: top;
   height: $btn-height-base;
   padding: $btn-padding-base;
   border-radius: $border-radius-base;
@@ -20,7 +35,7 @@
   line-height: $btn-line-height-base;
   outline: none;
   cursor: pointer;
-  transition: all .3s ease-in-out;
+  transition: all .2s ease-in-out;
 
   &.is-disabled {
     &,
@@ -31,6 +46,10 @@
       cursor: not-allowed;
     }
   }
+  .loading-icon {
+    margin-right: 2px;
+  }
+
 
   &:hover,
   &:focus {
@@ -51,6 +70,7 @@
       color: darken($primary-color, 20%);
       border-color: darken($primary-color, 20%);
     }
+    @include btn-loading-variant($btn-default-border-color, $btn-default-bg, $btn-default-color);
   }
 
   &-primary {
@@ -59,6 +79,7 @@
     &:active {
       @include btn-active-variant($btn-primary-border-color, $btn-primary-bg);
     }
+    @include btn-loading-variant($btn-primary-border-color, $btn-primary-bg, $btn-primary-color);
   }
 
 
@@ -68,6 +89,7 @@
     &:active {
       @include btn-active-variant($btn-danger-border-color, $btn-danger-bg);
     }
+    @include btn-loading-variant($btn-danger-border-color, $btn-danger-bg, $btn-danger-color);
   }
 
   &-info {
@@ -76,6 +98,7 @@
     &:active {
       @include btn-active-variant($btn-info-border-color, $btn-info-bg);
     }
+    @include btn-loading-variant($btn-info-border-color, $btn-info-bg, $btn-info-color);
   }
 
   &-success {
@@ -84,6 +107,7 @@
     &:active {
       @include btn-active-variant($btn-success-border-color, $btn-success-bg);
     }
+    @include btn-loading-variant($btn-success-border-color, $btn-success-bg, $btn-success-color);
   }
 
   &-warning {
@@ -92,6 +116,7 @@
     &:active {
       @include btn-active-variant($btn-warning-border-color, $btn-warning-bg);
     }
+    @include btn-loading-variant($btn-warning-border-color, $btn-warning-bg, $btn-warning-color);
   }
 
   &-lg {

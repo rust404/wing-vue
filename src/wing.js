@@ -1,16 +1,11 @@
 import Button from "./packages/button";
+import Icon from './packages/icon';
+const components = [Button, Icon];
 
-const components = [
-  Button
-]
-
-const install = function(Vue) {
+const install = function (Vue) {
   components.forEach(component => {
-    Vue.use(component)
-  })
-}
+    Vue.use(component);
+  });
+};
 
-export {
-  install as default,
-  Button
-}
+export { install as default, Button, Icon };
