@@ -1,16 +1,17 @@
 <template>
   <button :class="className">
-    <w-icon spin name="loading" class="loading-icon" v-if="loading"/>
-    <span><slot/></span>
+    <spinner spin class="spinner" v-if="loading"/>
+    <slot/>
   </button>
 </template>
 
 <script>
-import Icon from '../icon'
+import Spinner from '@wing-ui/icons-vue/lib/Spinner';
+import '@wing-ui/icons-vue/lib/icon.css';
 export default {
   name: 'w-button',
   components: {
-    WIcon: Icon
+    Spinner
   },
   props: {
     type: {

@@ -9,16 +9,16 @@
   ],
   "packages": [
     {
-      "name": "Button",
       "version": "0.0.1",
+      "name": "Button",
       "chnName": "按钮",
       "category": "0"
     },
     {
       "version": "0.0.1",
-      "name": "Icon",
-      "chnName": "图标",
-      "category": "0"
+      "name": "Input",
+      "chnName": "输入框",
+      "category": "4"
     }
   ]
 }

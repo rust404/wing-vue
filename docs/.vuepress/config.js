@@ -19,7 +19,8 @@ module.exports = {
           title: '组件列表',
           collapsable: false,
           children: [
-            'basic/button'
+            'basic/button',
+            'basic/icon'
           ]
         }
       ]

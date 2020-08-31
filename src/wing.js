@@ -1,6 +1,6 @@
 import Button from "./packages/button";
-import Icon from './packages/icon';
-const components = [Button, Icon];
+import Input from './packages/input';
+const components = [Button, Input];
 
 const install = function (Vue) {
   components.forEach(component => {
@@ -8,4 +8,4 @@ const install = function (Vue) {
   });
 };
 
-export { install as default, Button, Icon };
+export { install as default, Button };

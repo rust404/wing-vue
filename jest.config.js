@@ -13,7 +13,8 @@ module.exports = {
   },
   transformIgnorePatterns: ['/node_modules/'],
   moduleNameMapper: {
-    '^@/(.*)$': '<rootDir>/src/$1'
+    '^@/(.*)$': '<rootDir>/src/$1',
+    '\\.(css|jpg|png)$': '<rootDir>/empty-module.js',
   },
   testEnvironment: 'jest-environment-jsdom-fifteen',
   // serializer for snapshots

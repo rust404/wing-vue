@@ -29,7 +29,11 @@
 
 ## 加载中 
 <br/>
-<button-demo/>
+<ButtonDemo-ButtonLoadingDemo/>
 <w-button loading>Default</w-button>
 <w-button loading type="primary">Primary</w-button>
 <w-button loading type="danger">Danger</w-button>
+
+## 带icon
+<br/>
+<ButtonDemo-ButtonIconDemo/>

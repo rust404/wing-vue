@@ -1960,6 +1960,11 @@
     "@webassemblyjs/wast-parser" "1.9.0"
     "@xtuc/long" "4.2.2"
 
+"@wing-ui/icons-vue@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@wing-ui/icons-vue/-/icons-vue-0.0.2.tgz#7472b93a915e9d04f68f139662ef5cafa2574064"
+  integrity sha512-7oiY6RwAilLQXi2AxORfjiJYa+P1ZEviSXZzt8YGC9FiOvuDfmuogt8An5Y4KtUVLhMLpfjiV1kJBKBzcX7o5w==
+
 "@xtuc/ieee754@^1.2.0":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@xtuc/ieee754/-/ieee754-1.2.0.tgz#eef014a3145ae477a1cbc00cd1e552336dceb790"
