@@ -8,4 +8,4 @@ const install = function (Vue) {
   });
 };
 
-export { install as default, Button };
+export { install as default, Button, Input };

@@ -1,0 +1,71 @@
+@import '../../styles/variables.scss';
+
+%addon {
+  display: flex;
+  align-items: center;
+  background: $input-addon-bg;
+  padding: 0 $input-padding-horizontal;
+  border: $border-width-base $border-style-base $border-color-base;
+}
+
+$prefix-cls: 'wing-input';
+
+.#{$prefix-cls} {
+  display: inline-flex;
+  height: $input-height-base;
+  line-height: $input-line-height-base;
+  font-size: $input-font-size-base;
+  &-lg {
+    height: $input-height-lg;
+    font-size: $input-font-size-lg;
+  }
+  &-sm {
+    height: $input-height-sm;
+    font-size: $input-font-size-sm;
+  }
+  > :first-child {
+    border-top-left-radius: $input-border-radius;
+    border-bottom-left-radius: $input-border-radius;
+  }
+  > :last-child {
+    border-top-right-radius: $input-border-radius;
+    border-bottom-right-radius: $input-border-radius;
+  }
+  &-prepend {
+    @extend %addon;
+    border-right: 0;
+  }
+  &-append {
+    @extend %addon;
+    border-left: 0;
+  }
+  &-main {
+    display: flex;
+    border: $input-border-width $input-border-style $input-border-color;
+    padding: 0 $input-padding-horizontal;
+    transition: all .3s ease-in-out;
+    .#{$prefix-cls}-prefix {
+      display: flex;
+      align-items: center;
+      padding-right: $input-padding-horizontal;
+    }
+    .#{$prefix-cls}-suffix {
+      display: flex;
+      align-items: center;
+      padding-left: $input-padding-horizontal;
+    }
+    input {
+      flex: 1;
+      outline: none;
+      border: none;
+      padding: 0;
+    }
+    &:hover {
+      border-color: $input-hover-border-color;
+    }
+    &.is-focus {
+      border-color: $input-focus-border-color;
+      box-shadow: $input-focus-box-shadow;
+    }
+  }
+}

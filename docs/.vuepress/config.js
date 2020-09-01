@@ -20,7 +20,8 @@ module.exports = {
           collapsable: false,
           children: [
             'basic/button',
-            'basic/icon'
+            'basic/icon',
+            'basic/input'
           ]
         }
       ]

@@ -113,3 +113,31 @@ $btn-success-border-color: $success-color;
 $btn-disabled-color: $disabled-color;
 $btn-disabled-bg: $disabled-bg;
 $btn-disabled-border-color: $border-color-base;
+
+// Input Component
+$input-line-height-base: $line-height-base;
+
+$input-height-base: 32px;
+$input-height-lg: 40px;
+$input-height-sm: 24px;
+
+$input-border-radius: $border-radius-base;
+$input-border-style: $border-style-base;
+$input-border-width: $border-width-base;
+$input-border-color: $border-color-base;
+
+$input-font-size-base: $font-size-base;
+$input-font-size-lg: $font-size-lg;
+$input-font-size-sm: $font-size-sm;
+
+$input-padding-horizontal: $padding-sm;
+
+$input-hover-border-color: $primary-color;
+$input-focus-border-color: $primary-color;
+$input-focus-box-shadow: 0 0 2px $input-focus-border-color;
+
+$input-disabled-color: $disabled-color;
+$input-disabled-bg: $disabled-bg;
+$input-disabled-border-color: $border-color-base;
+
+$input-addon-bg: $disabled-bg;
