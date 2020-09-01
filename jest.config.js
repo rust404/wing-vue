@@ -12,6 +12,7 @@ module.exports = {
     '^.+\\.jsx?$': require.resolve('babel-jest')
   },
   transformIgnorePatterns: ['/node_modules/'],
+  setupFilesAfterEnv: ['./test/setup.js'],
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
     '\\.(css|jpg|png)$': '<rootDir>/empty-module.js',

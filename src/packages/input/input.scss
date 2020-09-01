@@ -15,6 +15,7 @@ $prefix-cls: 'wing-input';
   height: $input-height-base;
   line-height: $input-line-height-base;
   font-size: $input-font-size-base;
+  vertical-align: top;
   &-lg {
     height: $input-height-lg;
     font-size: $input-font-size-lg;
@@ -53,6 +54,14 @@ $prefix-cls: 'wing-input';
       display: flex;
       align-items: center;
       padding-left: $input-padding-horizontal;
+      &.clear-icon {
+        color: $input-clear-icon-color;
+        transition: color .3s ease-in-out;
+        &:hover {
+          cursor: pointer;
+          color: $input-clear-icon-hover-color;
+        }
+      }
     }
     input {
       flex: 1;
@@ -66,6 +75,11 @@ $prefix-cls: 'wing-input';
     &.is-focus {
       border-color: $input-focus-border-color;
       box-shadow: $input-focus-box-shadow;
+    }
+    &.is-disabled {
+      border-color: $input-disabled-border-color;
+      background: $input-disabled-bg;
+      color: $input-disabled-color;
     }
   }
 }

@@ -1,15 +1,13 @@
 <template>
   <div>
-    <div>value: {{test}}</div>
-    <w-input v-model="test" size="" @press-enter="onPress">
+    <w-input>
       <template v-slot:prefix>
         <Vuejs/>
       </template>
+    </w-input>
+    <w-input>
       <template v-slot:suffix>
         <TimesCircle/>
-      </template>
-      <template v-slot:prepend>
-        prepend
       </template>
     </w-input>
   </div>
@@ -23,16 +21,6 @@ export default {
   components: {
     Vuejs,
     TimesCircle
-  },
-  data() {
-    return {
-      test: 'default'
-    }
-  },
-  methods: {
-    onPress(e) {
-      console.log(e)
-    }
   }
 }
 </script>

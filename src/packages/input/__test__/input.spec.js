@@ -80,4 +80,57 @@ describe('Input component', () => {
     })
     expect(pressEnterEvent).toHaveBeenCalled()
   })
+  it('should render properly when disabled', () => {
+    wrapper = shallowMount(Input, {
+      propsData: {
+        disabled: true
+      }
+    })
+    expect(wrapper.classes()).toContain('is-disabled')
+    expect(wrapper.find('.wing-input-main').classes()).toContain('is-disabled')
+  })
+  it('should not call events when disabled', async () => {
+    const events = ['change', 'blur', 'focus']
+    const handler = jest.fn()
+    const listeners = events.reduce((acc, event) => {
+      acc[event] = handler
+      return acc
+    },{})
+    wrapper = shallowMount(Input, {
+      propsData: {
+        disabled: true
+      },
+      listeners: {
+        ...listeners,
+        'press-enter': handler
+      }
+    })
+    for (let event of events) {
+      await wrapper.find('input[type=text]').trigger(event)
+    }
+    await wrapper.find('input[type=text]').trigger('keypress', {
+      keyCode: 13
+    })
+    expect(handler).not.toHaveBeenCalled()
+  })
+  it('should clear when clear button click', async () => {
+    wrapper = mount({
+      template: `
+        <w-input v-model="test" allow-clear/> `,
+      components: {
+        WInput: Input
+      },
+      data() {
+        return {
+          test: 'clear'
+        }
+      }
+    })
+    const icon = wrapper.find('.clear-icon')
+    expect(icon.element).toBeVisible()
+    expect(wrapper.vm.test).toBe('clear')
+    await icon.trigger('click')
+    expect(wrapper.vm.test).toBe('')
+    expect(icon.element).not.toBeVisible()
+  })
 })

@@ -1,2 +1,1 @@
-require('jsdom-global')()
-global.expect = require('expect')
+import '@testing-library/jest-dom'
