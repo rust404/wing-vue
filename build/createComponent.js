@@ -8,14 +8,15 @@ const traverse = require('@babel/traverse').default
 const t = require('@babel/types');
 
 
-const componentConfig = {
-  name: 'Message',
-  version: '0.0.1',
-  chnName: '',
-  category: '0'
-}
+// const componentConfig = {
+//   name: 'Message',
+//   version: '0.0.1',
+//   chnName: '',
+//   category: '0'
+// }
 
 run()
+// removeComponent({name: 'Test'})
 
 function addEntry(config) {
   const entry = path.resolve(__dirname, '../src/wing.js')
@@ -42,7 +43,6 @@ function addEntry(config) {
     }
   })
   const output = generate(ast, { /* options */}, code);
-  console.log(output)
   fs.writeFileSync(entry, output.code)
 }
 
@@ -66,7 +66,7 @@ function removeEntry(config) {
     }
   })
   const output = generate(ast, { /* options */}, code);
-  console.log(output)
+  fs.writeFileSync(entry, output.code)
 }
 
 function run() {

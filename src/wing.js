@@ -10,4 +10,4 @@ const install = function (Vue) {
   });
 };
 
-export { install as default, WButton, WInput, WRow, WCol};
+export { install as default, WButton, WInput, WRow, WCol };
