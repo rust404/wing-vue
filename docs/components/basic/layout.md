@@ -1,17 +1,21 @@
 # Layout
 
-<template>
-    <w-row>
-        <w-col></w-col>
-        <w-col></w-col>
-        <w-col></w-col>
-    </w-row>
-</template>
+## 基础布局
 
-<template>
-    <w-row>
-        <w-col span="12"></w-col>
-        <w-col span="8"></w-col>
-        <w-col span="4"></w-col>
-    </w-row>
-</template>
+<GridDemo-GridBaseDemo/>
+
+
+## 偏移
+<GridDemo-GridOffsetDemo/>
+
+## 间隔
+<GridDemo-GridGutterDemo/>
+
+## 水平对齐
+<GridDemo-GridJustifyDemo/>
+
+## 垂直对齐
+<GridDemo-GridAlignDemo/>
+
+## 响应式
+<GridDemo-GridResponsiveDemo/>

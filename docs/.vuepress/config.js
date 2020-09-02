@@ -1,8 +1,12 @@
+const path = require('path')
 module.exports = {
+  chainWebpack (config) {
+    config.resolve.alias.set('@', path.resolve(__dirname, '../../src'))
+  },
   title: 'Wing UI',
   description: "一个轻量级的Vue UI组件库",
   scss: {
-    additionalData: `@import "../../styles/index.scss";`,
+    additionalData: `@import "~@/styles/index.scss";`,
   },
   themeConfig: {
     nav: [

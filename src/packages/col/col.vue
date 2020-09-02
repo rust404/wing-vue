@@ -1,12 +1,11 @@
 <template>
-  <div class="wing-col">
+  <div class="wing-col" :class="colClass" :style="colStyle">
     <slot></slot>
   </div>
 </template>
 
 <script>
 const spanProps = (name) => ({
-  default: 24,
   type: [Number, String],
   validator(value) {
     const number = parseInt(value)
@@ -39,13 +38,33 @@ export default {
     xl: {
       type: [String, Object]
     },
+    xxl: {
+      type: [String, Object]
+    },
   },
   computed: {
     colClass() {
+      const breakPointsProps = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].reduce((acc, point) => {
+        if (this[point]) {
+          acc[`wing-col-${point}-${this[point]}`] = this[point]
+        }
+        return acc
+      }, {})
       return {
         [`wing-col-${this.span}`]: this.span,
         [`wing-col-offset-${this.offset}`]: this.offset,
+        ...breakPointsProps
       }
+    },
+    colStyle() {
+      const halfGutter = this.gutter && this.gutter / 2 + 'px'
+      return {
+        paddingLeft: halfGutter,
+        paddingRight: halfGutter
+      }
+    },
+    gutter() {
+      return this.$parent && this.$parent.gutter
     }
   }
 }

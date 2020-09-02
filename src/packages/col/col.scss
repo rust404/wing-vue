@@ -1,0 +1,41 @@
+@import '../../styles/index.scss';
+
+$prefix: '.wing-col';
+
+@mixin break-point-style($span, $point: null) {
+  $break-point-selector: null;
+  @if ($point) {
+    $break-point-selector: '-#{$point}';
+  }
+  &#{$break-point-selector}-#{$span} {
+    width: $span / $grids * 100%;
+  }
+  &#{$break-point-selector}-offset-#{$span} {
+    margin-left: $span / $grids * 100%;
+  }
+}
+
+#{$prefix} {
+  flex-shrink: 0;
+
+  > * {
+    height: 100%;
+  }
+
+  @for $span from 1 through $grids {
+    @include break-point-style($span);
+  }
+  @for $span from 1 through $grids {
+    @each $point in $break-points-arr {
+      @if ($point == 'xs') {
+        @media (max-width: #{map-get($break-points, 'sm')-1px}) {
+          @include break-point-style($span, $point);
+        }
+      } @else {
+        @media (min-width: #{map-get($break-points, $point)}) {
+          @include break-point-style($span, $point);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+.grid-content {
+  border-radius: 4px;
+  background-color: $blue-6;
+  line-height: 32px;
+  height: 32px;
+  text-align: center;
+  color: #fff;
+}
+
+
+.demo-row {
+  margin-bottom: 20px;
+  >*:nth-child(even) > .grid-content {
+      background-color: $blue-3;
+  }
+}
+

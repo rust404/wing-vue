@@ -17,12 +17,14 @@ html {
 /* Sections
    ========================================================================== */
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 /**
  * Remove the margin in all browsers.
  */
 
 body {
-  box-sizing: border-box;
   font-size: $font-size-base;
   font-family: $font-family-base;
   margin: 0;
