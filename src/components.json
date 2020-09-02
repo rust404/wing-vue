@@ -19,6 +19,18 @@
       "name": "Input",
       "chnName": "输入框",
       "category": "4"
+    },
+    {
+      "version": "0.0.1",
+      "name": "Row",
+      "chnName": "行",
+      "category": "1"
+    },
+    {
+      "version": "0.0.1",
+      "name": "Col",
+      "chnName": "列",
+      "category": "1"
     }
   ]
 }

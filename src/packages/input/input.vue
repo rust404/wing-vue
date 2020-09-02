@@ -34,7 +34,7 @@
 import TimesCircle from '@wing-ui/icons-vue/lib/TimesCircle'
 
 export default {
-  name: 'w-input',
+  name: 'WInput',
   components: {
     TimesCircle
   },

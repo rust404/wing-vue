@@ -17,41 +17,76 @@ const componentConfig = {
 
 run()
 
-function transformEntry(config) {
+function addEntry(config) {
   const entry = path.resolve(__dirname, '../src/wing.js')
   const code = fs.readFileSync(entry).toString()
   const ast = parse(code, {
     sourceType: 'module'
   });
+  const componentName = 'W' + config.name
   traverse(ast, {
-    VariableDeclaration(p) {
-      const x = parse(`import ${config.name} from './packages/${config.name.toLowerCase()}';`, {
-        sourceType: 'module'
-      })
-      if (p.node && p.node.declarations && p.node.declarations[0]
-        && p.node.declarations[0].id && p.node.declarations[0].id.name === 'components') {
-        p.insertBefore(x.program.body[0])
-        p.node.declarations[0].init.elements.push(t.identifier(config.name))
+    ArrayExpression(p) {
+      const parent = p.findParent(parent => parent.isVariableDeclaration())
+      if (parent && parent.getBindingIdentifiers().components) {
+        const x = parse(`import ${componentName} from './packages/${config.name.toLowerCase()}';`, {
+          sourceType: 'module'
+        })
+        parent.insertBefore(x.program.body[0])
+        p.node.elements.push(t.identifier(componentName))
+      }
+    },
+    ExportDeclaration(p) {
+      const exportIdentifier = t.identifier(componentName)
+      const specifier = t.exportSpecifier(exportIdentifier, exportIdentifier)
+      p.node.specifiers.push(specifier)
+    }
+  })
+  const output = generate(ast, { /* options */}, code);
+  console.log(output)
+  fs.writeFileSync(entry, output.code)
+}
+
+function removeEntry(config) {
+  const entry = path.resolve(__dirname, '../src/wing.js')
+  const code = fs.readFileSync(entry).toString()
+  const ast = parse(code, {
+    sourceType: 'module'
+  });
+  const componentName = 'W' + config.name
+  traverse(ast, {
+    Identifier(p) {
+      if (p.isIdentifier({name: componentName})) {
+        const importDeclaration = p.findParent(parent => parent.isImportDeclaration())
+        const exportSpecifier = p.findParent(parent => parent.isExportSpecifier())
+        const arrayExpression = p.findParent(parent => parent.isArrayExpression())
+        arrayExpression && p.remove()
+        importDeclaration && importDeclaration.remove()
+        exportSpecifier && exportSpecifier.remove()
       }
     }
   })
   const output = generate(ast, { /* options */}, code);
-  fs.writeFileSync(entry, output.code)
+  console.log(output)
 }
 
 function run() {
-  let componentName = ''
+  let outerConfig = null
   getConfig().then(config => {
-    componentName = config.name
+    outerConfig = config
     return createComponentFiles(config)
   }).then((config) => {
-    transformEntry(config)
+    addEntry(config)
     return addComponentToJSON(config)
   }).catch((err) => {
     console.log(err)
-    removeComponentDir(componentName)
-    removeComponentFromJSON(componentName)
+    removeComponent(outerConfig)
   })
+}
+
+function removeComponent(config) {
+  removeComponentDir(config)
+  removeComponentFromJSON(config)
+  removeEntry(config)
 }
 
 function isDuplicate(name) {
@@ -115,22 +150,25 @@ function addComponentToJSON(config) {
   })
 }
 
-function removeComponentFromJSON(name) {
+function removeComponentFromJSON(config) {
+  const name = config.name.toLowerCase()
   const components = require(path.resolve(__dirname, '../src/components.json'))
-  components.packages = components.packages.filter(pkg => pkg.name.toLowerCase() !== name.toLowerCase())
+  components.packages = components.packages.filter(pkg => pkg.name.toLowerCase() !== name)
   createFile(path.resolve(__dirname, '../src/components.json'), JSON.stringify(components, null, 2)).then(() => {
-    console.log(`从components.json删除组件${name}成功`)
+    console.log(`从components.json删除组件${config.name}成功`)
   })
 }
 
-function removeComponentDir(name) {
+function removeComponentDir(config) {
   console.log('删除相关文件中')
-  name = name.toLowerCase()
+  const name = config.name.toLowerCase()
   const dirPath = path.resolve(__dirname, `../src/packages/${name}`)
   if (fs.existsSync(dirPath)) {
     fs.rmdirSync(dirPath, {
       recursive: true
     })
+  } else {
+    console.log('不存在相应目录' + dirPath)
   }
 }
 
@@ -179,7 +217,7 @@ function createVueFile(config) {
 
 <script>
 export default {
-  name: 'w-${name}'
+  name: 'W${config.name}'
 }
 </script>
   `

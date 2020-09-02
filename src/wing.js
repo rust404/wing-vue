@@ -1,6 +1,8 @@
-import Button from "./packages/button";
-import Input from './packages/input';
-const components = [Button, Input];
+import WButton from "./packages/button";
+import WInput from './packages/input';
+import WRow from './packages/row';
+import WCol from './packages/col';
+const components = [WButton, WInput, WRow, WCol];
 
 const install = function (Vue) {
   components.forEach(component => {
@@ -8,4 +10,4 @@ const install = function (Vue) {
   });
 };
 
-export { install as default, Button, Input };
+export { install as default, WButton, WInput, WRow, WCol};

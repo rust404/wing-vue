@@ -21,7 +21,8 @@ module.exports = {
           children: [
             'basic/button',
             'basic/icon',
-            'basic/input'
+            'basic/input',
+            'basic/layout'
           ]
         }
       ]

@@ -9,7 +9,7 @@
 import Spinner from '@wing-ui/icons-vue/lib/Spinner';
 import '@wing-ui/icons-vue/lib/icon.css';
 export default {
-  name: 'w-button',
+  name: 'WButton',
   components: {
     Spinner
   },
