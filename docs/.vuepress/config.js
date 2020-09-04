@@ -20,13 +20,20 @@ module.exports = {
           collapsable: false
         },
         {
-          title: '组件列表',
+          title: '基础组件',
           collapsable: false,
           children: [
             'basic/button',
             'basic/icon',
             'basic/input',
             'basic/layout'
+          ]
+        },
+        {
+          title: '消息通知',
+          collapsable: false,
+          children: [
+            'notify/message',
           ]
         }
       ]

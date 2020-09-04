@@ -1,0 +1,41 @@
+@import '../../styles/index.scss';
+
+$prefix: '.wing-message';
+
+#{$prefix} {
+  position: absolute;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: $message-line-height-base;
+
+  &-item {
+    list-style: none;
+    height: $message-height;
+    display: flex;
+    align-items: center;
+    padding: 0 $message-padding-horizontal;
+    background: $message-background-base;
+    border: $message-border-width $message-border-color $message-border-style;
+    margin-bottom: $message-gap;
+    border-radius: $message-border-radius;
+  }
+
+  &-icon {
+    display: flex;
+    align-items: center;
+    margin-right: $message-padding-horizontal;
+    @each $type, $color in $theme {
+      &-#{$type} {
+        color: $color;
+      }
+    }
+    &-loading {
+      animation: spin 1s linear infinite;
+    }
+  }
+}

@@ -6,3 +6,21 @@
     transform: rotate(360deg);
   }
 }
+
+.zoom-in-top {
+  &-enter-active,
+  &-leave-active {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  &-enter-to {
+    transform: translateY(0);
+    opacity: 1;
+    transition: .3s all ease-in-out;
+  }
+
+  &-leave-active {
+    transition: .3s all ease-in-out;
+  }
+}

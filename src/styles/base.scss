@@ -20,6 +20,11 @@ html {
 *, *::before, *::after {
   box-sizing: border-box;
 }
+
+* {
+  margin: 0;
+  padding: 0;
+}
 /**
  * Remove the margin in all browsers.
  */

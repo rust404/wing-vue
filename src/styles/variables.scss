@@ -65,7 +65,7 @@ $shadow-2: 0 4px 12px $shadow-color;
 $box-shadow-base: $shadow-1-down;
 
 // background
-$component-base: #fff;
+$component-base-bg: #fff;
 
 // Button component
 $btn-height-base: 32px;
@@ -86,7 +86,7 @@ $btn-padding-sm: 0px $padding-sm;
 
 // Button type
 $btn-default-color: #000;
-$btn-default-bg: $component-base;
+$btn-default-bg: $component-base-bg;
 $btn-default-border-color: $border-color-base;
 
 $btn-primary-color: $text-color;
@@ -148,3 +148,14 @@ $input-clear-icon-hover-color: $grey-7;
 $grids: 24;
 $break-points-arr: ("xs", "sm", "md", "lg", "xl", "xxl");
 $break-points: ("sm": 576px, "md": 768px, "lg": 992px, "xl": 1200px, "xxl": 1600px);
+
+// Message
+$message-height: 32px;
+$message-border-width: $border-width-base;
+$message-border-style: $border-style-base;
+$message-border-color: $border-color-base;
+$message-background-base: $component-base-bg;
+$message-padding-horizontal : $padding-sm;
+$message-gap: $message-padding-horizontal;
+$message-line-height-base: $line-height-base;
+$message-border-radius: $border-radius-base;

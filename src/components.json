@@ -31,6 +31,12 @@
       "name": "Col",
       "chnName": "列",
       "category": "1"
+    },
+    {
+      "version": "0.0.1",
+      "name": "Message",
+      "chnName": "消息",
+      "category": "5"
     }
   ]
 }
