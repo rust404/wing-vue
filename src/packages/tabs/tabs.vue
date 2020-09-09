@@ -83,8 +83,15 @@ export default {
     this.$children && this.$children.forEach((child) => {
       if (child.$vnode.componentOptions.tag === 'w-tabs-pane') {
         // console.log(child.$slots)
+        if (!child.tabKey) {
+          console.error('prop tabKey is required in WTabsPane')
+        }
+        const label = child.$slots.label || child.label
+        if (!label) {
+          console.error('neither prop label or slot label is not provided in WTabsPane')
+        }
         this.tabData.push({
-          label: child.$slots.label || child.label,
+          label,
           tabKey: child.tabKey,
           disabled: child.disabled
         })
