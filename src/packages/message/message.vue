@@ -87,13 +87,6 @@ export default {
     },
     leave(el) {
       this.clearVerticalStyle(el)
-      el.style.height = '0px'
-      el.style.marginTop = '0px'
-      el.style.marginBottom = '0px'
-      el.style.paddingTop = '0px'
-      el.style.paddingBottom = '0px'
-      el.style.borderTopWidth = '0px'
-      el.style.borderBottomWidth = '0px'
     },
     close(id) {
       const msg = this.messages.filter(msg => msg.id === Number(id))[0]
@@ -102,7 +95,7 @@ export default {
         msg.onClose && msg.onClose()
       }
     },
-    open({type, content, duration, onClose}) {
+    open({type, content, duration = 3000, onClose}) {
       if (messageType.indexOf(type) === -1) {
         console.error(`message type should be one of ['loading', 'danger', 'warning', 'info', 'success']`)
       }

@@ -55,107 +55,128 @@ $link-hover-color: darken($link-color, 15%) !default;
 $link-hover-decoration: underline !default;
 
 // shadow
-$shadow-color: rgba(0, 0, 0, 0.15);
-$shadow-color-inverse: #fff;
-$shadow-1-up: 0 -2px 8px $shadow-color;
-$shadow-1-down: 0 2px 8px $shadow-color;
-$shadow-1-left: -2px 0 8px $shadow-color;
-$shadow-1-right: 2px 0 8px $shadow-color;
-$shadow-2: 0 4px 12px $shadow-color;
-$box-shadow-base: $shadow-1-down;
+$shadow-color: rgba(0, 0, 0, 0.15) !default;
+$shadow-color-inverse: #fff !default;
+$shadow-1-up: 0 -2px 8px $shadow-color !default;
+$shadow-1-down: 0 2px 8px $shadow-color !default;
+$shadow-1-left: -2px 0 8px $shadow-color !default;
+$shadow-1-right: 2px 0 8px $shadow-color !default;
+$shadow-2: 0 4px 12px $shadow-color !default;
+$box-shadow-base: $shadow-1-down !default;
 
 // background
-$component-base-bg: #fff;
+$component-base-bg: #fff !default;
 
 // Button component
-$btn-height-base: 32px;
-$btn-height-lg: 40px;
-$btn-height-sm: 24px;
+$btn-height-base: 32px !default;
+$btn-height-lg: 40px !default;
+$btn-height-sm: 24px !default;
 
-$btn-border-radius: $border-radius-base;
-$btn-border-width: $border-width-base;
-$btn-border-style: $border-style-base;
+$btn-border-radius: $border-radius-base !default;
+$btn-border-width: $border-width-base !default;
+$btn-border-style: $border-style-base !default;
 
-$btn-font-size-base: $font-size-base;
-$btn-font-size-lg: $font-size-lg;
-$btn-font-size-sm: $font-size-sm;
-$btn-line-height-base: $line-height-base;
-$btn-padding-base: 0px $padding-md;
-$btn-padding-lg: 0px $padding-lg;
-$btn-padding-sm: 0px $padding-sm;
+$btn-font-size-base: $font-size-base !default;
+$btn-font-size-lg: $font-size-lg !default;
+$btn-font-size-sm: $font-size-sm !default;
+$btn-line-height-base: $line-height-base !default;
+$btn-padding-base: 0px $padding-md !default;
+$btn-padding-lg: 0px $padding-lg !default;
+$btn-padding-sm: 0px $padding-sm !default;
 
 // Button type
-$btn-default-color: #000;
-$btn-default-bg: $component-base-bg;
-$btn-default-border-color: $border-color-base;
+$btn-default-color: #000 !default;
+$btn-default-bg: $component-base-bg !default;
+$btn-default-border-color: $border-color-base !default;
 
-$btn-primary-color: $text-color;
-$btn-primary-bg: $primary-color;
-$btn-primary-border-color: $primary-color;
+$btn-primary-color: $text-color !default;
+$btn-primary-bg: $primary-color !default;
+$btn-primary-border-color: $primary-color !default;
 
-$btn-danger-color: $text-color;
-$btn-danger-bg: $danger-color;
-$btn-danger-border-color: $danger-color;
+$btn-danger-color: $text-color !default;
+$btn-danger-bg: $danger-color !default;
+$btn-danger-border-color: $danger-color !default;
 
-$btn-warning-color: $text-color;
-$btn-warning-bg: $warning-color;
-$btn-warning-border-color: $warning-color;
+$btn-warning-color: $text-color !default;
+$btn-warning-bg: $warning-color !default;
+$btn-warning-border-color: $warning-color !default;
 
-$btn-info-color: $text-color;
-$btn-info-bg: $info-color;
-$btn-info-border-color: $info-color;
+$btn-info-color: $text-color !default;
+$btn-info-bg: $info-color !default;
+$btn-info-border-color: $info-color !default;
 
-$btn-success-color: $text-color;
-$btn-success-bg: $success-color;
-$btn-success-border-color: $success-color;
+$btn-success-color: $text-color !default;
+$btn-success-bg: $success-color !default;
+$btn-success-border-color: $success-color !default;
 
 // Button disabled
-$btn-disabled-color: $disabled-color;
-$btn-disabled-bg: $disabled-bg;
-$btn-disabled-border-color: $border-color-base;
+$btn-disabled-color: $disabled-color !default;
+$btn-disabled-bg: $disabled-bg !default;
+$btn-disabled-border-color: $border-color-base !default;
 
 // Input Component
-$input-line-height-base: $line-height-base;
+$input-line-height-base: $line-height-base !default;
 
-$input-height-base: 32px;
-$input-height-lg: 40px;
-$input-height-sm: 24px;
+$input-height-base: 32px !default;
+$input-height-lg: 40px !default;
+$input-height-sm: 24px !default;
 
-$input-border-radius: $border-radius-base;
-$input-border-style: $border-style-base;
-$input-border-width: $border-width-base;
-$input-border-color: $border-color-base;
+$input-border-radius: $border-radius-base !default;
+$input-border-style: $border-style-base !default;
+$input-border-width: $border-width-base !default;
+$input-border-color: $border-color-base !default;
 
-$input-font-size-base: $font-size-base;
-$input-font-size-lg: $font-size-lg;
-$input-font-size-sm: $font-size-sm;
+$input-font-size-base: $font-size-base !default;
+$input-font-size-lg: $font-size-lg !default;
+$input-font-size-sm: $font-size-sm !default;
 
-$input-padding-horizontal: $padding-sm;
+$input-padding-horizontal: $padding-sm !default;
 
-$input-hover-border-color: $primary-color;
-$input-focus-border-color: $primary-color;
-$input-focus-box-shadow: 0 0 2px $input-focus-border-color;
+$input-hover-border-color: $primary-color !default;
+$input-focus-border-color: $primary-color !default;
+$input-focus-box-shadow: 0 0 2px $input-focus-border-color !default;
 
-$input-disabled-color: $disabled-color;
-$input-disabled-bg: $disabled-bg;
-$input-disabled-border-color: $border-color-base;
+$input-disabled-color: $disabled-color !default;
+$input-disabled-bg: $disabled-bg !default;
+$input-disabled-border-color: $border-color-base !default;
 
-$input-addon-bg: $disabled-bg;
-$input-clear-icon-color: $grey-5;
-$input-clear-icon-hover-color: $grey-7;
+$input-addon-bg: $disabled-bg !default;
+$input-clear-icon-color: $grey-5 !default;
+$input-clear-icon-hover-color: $grey-7 !default;
 
 // Layout
-$grids: 24;
-$break-points-arr: ("xs", "sm", "md", "lg", "xl", "xxl");
-$break-points: ("sm": 576px, "md": 768px, "lg": 992px, "xl": 1200px, "xxl": 1600px);
+$grids: 24 !default;
+$break-points-arr: ("xs", "sm", "md", "lg", "xl", "xxl") !default;
+$break-points: ("sm": 576px, "md": 768px, "lg": 992px, "xl": 1200px, "xxl": 1600px) !default;
 
 // Message
-$message-height: 32px;
-$message-border-width: $border-width-base;
-$message-border-style: $border-style-base;
-$message-border-color: $border-color-base;
-$message-background-base: $component-base-bg;
-$message-padding-horizontal : $padding-sm;
-$message-gap: $message-padding-horizontal;
-$message-line-height-base: $line-height-base;
-$message-border-radius: $border-radius-base;
+$message-height: 32px !default;
+$message-border-width: $border-width-base !default;
+$message-border-style: $border-style-base !default;
+$message-border-color: $border-color-base !default;
+$message-background-base: $component-base-bg !default;
+$message-padding-horizontal : $padding-sm !default;
+$message-gap: $message-padding-horizontal !default;
+$message-line-height-base: $line-height-base !default;
+$message-border-radius: $border-radius-base !default;
+
+// Tabs
+$tabs-btn-height-base: 40px !default;
+$tabs-btn-height-lg: 48px !default;
+$tabs-btn-height-sm: 32px !default;
+
+$tabs-btn-vertical-padding-base: $padding-md !default;
+$tabs-btn-vertical-padding-lg: $padding-lg !default;
+$tabs-btn-vertical-padding-sm: $padding-sm !default;
+
+$tabs-btn-active-color: $primary-color !default;
+$tabs-btn-bg: $component-base-bg !default;
+
+$tabs-btn-disabled-color: $disabled-color !default;
+$tabs-header-border-width: 2px !default;
+$tabs-header-border-style: $border-style-base !default;
+$tabs-header-border-color: $grey-3 !default;
+$tabs-header-margin-bottom: 16px !default;
+
+$tabs-pane-vertical-padding: $padding-md !default;
+

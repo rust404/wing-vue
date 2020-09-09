@@ -8,8 +8,7 @@ export default {
   methods: {
     onClick() {
       this.$message.success({
-        content: '3秒后关闭',
-        duration: 3000
+        content: '3秒后关闭'
       })
     }
   }

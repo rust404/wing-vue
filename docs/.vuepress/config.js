@@ -35,7 +35,14 @@ module.exports = {
           children: [
             'notify/message',
           ]
-        }
+        },
+        {
+          title: '数据展示',
+          collapsable: false,
+          children: [
+            'dataDisplay/tabs',
+          ]
+        },
       ]
     }
   }

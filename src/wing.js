@@ -3,7 +3,8 @@ import WInput from './packages/input';
 import WRow from './packages/row';
 import WCol from './packages/col';
 import WMessage from './packages/message';
-const components = [WButton, WInput, WRow, WCol, WMessage];
+import WTabs from './packages/tabs';
+const components = [WButton, WInput, WRow, WCol, WMessage, WTabs];
 
 const install = function (Vue) {
   components.forEach(component => {
@@ -11,4 +12,4 @@ const install = function (Vue) {
   });
 };
 
-export { install as default, WButton, WInput, WRow, WCol, WMessage };
+export { install as default, WButton, WInput, WRow, WCol, WMessage, WTabs };

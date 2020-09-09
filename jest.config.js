@@ -17,7 +17,7 @@ module.exports = {
     '^@/(.*)$': '<rootDir>/src/$1',
     '\\.(css|jpg|png)$': '<rootDir>/empty-module.js',
   },
-  testEnvironment: 'jest-environment-jsdom-fifteen',
+  testEnvironment: 'jest-environment-jsdom',
   // serializer for snapshots
   snapshotSerializers: [
     'jest-serializer-vue'

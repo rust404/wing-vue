@@ -1,0 +1,51 @@
+@import '../../styles/index.scss';
+
+$prefix: '.wing-tabs';
+
+#{$prefix} {
+  font-size: $font-size-base;
+  &-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-bottom: $tabs-header-border-width $tabs-header-border-style $tabs-header-border-color;
+    margin-bottom: $tabs-header-margin-bottom;
+    &-bar {
+      position: absolute;
+      bottom: -2px;
+      height: 2px;
+      background-color: $tabs-btn-active-color;
+      transition: all 250ms ease-in-out;
+    }
+  }
+  &-btn {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    height: $tabs-btn-height-base;
+    font-size: $font-size-base;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: $tabs-btn-bg;
+
+    padding: 0 $tabs-btn-vertical-padding-base 0 0;
+    &:first-child {
+      padding: 0 $tabs-btn-vertical-padding-base 0 0;
+    }
+    &.is-active {
+      color: $tabs-btn-active-color;
+    }
+    &.is-disabled {
+      color: $tabs-btn-disabled-color;
+      cursor: not-allowed;
+    }
+  }
+
+  &-pane {
+    display: none;
+    &.is-active {
+      display: block;
+    }
+  }
+}

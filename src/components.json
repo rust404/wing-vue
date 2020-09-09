@@ -37,6 +37,12 @@
       "name": "Message",
       "chnName": "消息",
       "category": "5"
+    },
+    {
+      "version": "0.0.1",
+      "name": "Tabs",
+      "chnName": "选项卡",
+      "category": "3"
     }
   ]
 }
