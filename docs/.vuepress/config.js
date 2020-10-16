@@ -41,6 +41,7 @@ module.exports = {
           collapsable: false,
           children: [
             'dataDisplay/tabs',
+            'dataDisplay/tooltip',
           ]
         },
       ]

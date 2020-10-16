@@ -43,6 +43,12 @@
       "name": "Tabs",
       "chnName": "选项卡",
       "category": "3"
+    },
+    {
+      "version": "0.0.1",
+      "name": "Tooltip",
+      "chnName": "文字提示",
+      "category": "3"
     }
   ]
 }
