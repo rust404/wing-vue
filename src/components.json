@@ -49,6 +49,12 @@
       "name": "Tooltip",
       "chnName": "文字提示",
       "category": "3"
+    },
+    {
+      "version": "0.0.1",
+      "name": "Collapse",
+      "chnName": "折叠面板",
+      "category": "3"
     }
   ]
 }

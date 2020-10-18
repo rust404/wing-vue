@@ -1,0 +1,31 @@
+@import '../../styles/index.scss';
+
+$prefix: '.wing-collapse';
+
+#{$prefix} {
+  border: $collapse-border-width $collapse-border-style $collapse-border-color;
+  &-panel {
+    &:first-child {
+      #{$prefix}-panel-header {
+        border-top: 0;
+      }
+    }
+    &.is-active {
+      #{$prefix}-panel-header {
+        border-bottom-color: $collapse-border-color;
+      }
+    }
+  }
+  &-panel-header {
+    cursor: pointer;
+    padding: $collapse-padding;
+    background: $collapse-header-background;
+    border-top: $collapse-border-width $collapse-border-style $collapse-border-color;
+    border-bottom: $collapse-border-width $collapse-border-style transparent;
+    transition: all .3s;
+  }
+  &-panel-content {
+    padding: $collapse-padding;
+    background: $collapse-content-background;
+  }
+}

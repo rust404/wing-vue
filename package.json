@@ -21,7 +21,7 @@
     "build:umd": "npm run clean && rollup -c ./build/rollup.umd.js",
     "build:iife": "npm run clean && rollup -c ./build/rollup.iife.js",
     "build:packages": "npm run clean && rollup -c ./build/rollup.packages.js",
-    "create": "node ./build/createComponent.js",
+    "createComponent": "node ./build/createComponent.js",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "test": "jest"

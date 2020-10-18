@@ -1,10 +1,8 @@
 <template>
-  <transition-group
-      name="zoom-in-top"
-      class="wing-message"
-      tag="ul"
-      @enter="enter"
-      @leave="leave"
+  <collapse-transition-group
+    name="zoom-in-top"
+    class="wing-message"
+    tag="ul"
   >
     <li v-for="item in messages" :key="item.id" class="wing-message-item">
       <span class="wing-message-icon" :class="iconClass(item.type)">
@@ -12,7 +10,7 @@
     </span>
       <span class="wing-message-content">{{ item.content }}</span>
     </li>
-  </transition-group>
+  </collapse-transition-group>
 </template>
 
 <script>
@@ -23,7 +21,7 @@ import ExclamationCircle from '@wing-ui/icons-vue/lib/ExclamationCircle'
 import Spinner from '@wing-ui/icons-vue/lib/Spinner'
 import '@wing-ui/icons-vue/lib/icon.css'
 import {messageType} from './messageType';
-import {getStyle} from '../../utils';
+import {CollapseTransitionGroup} from '../../transitions/CollapseTransition';
 
 let messageId = 0;
 export default {
@@ -34,6 +32,7 @@ export default {
     InfoCircle,
     ExclamationCircle,
     Spinner,
+    CollapseTransitionGroup,
   },
   data() {
     return {
@@ -52,41 +51,6 @@ export default {
       return {
         [`wing-message-icon-${type}`]: type
       }
-    },
-    setStyle(el, options) {
-      Object.keys(options).forEach(key => {
-        el.style[key] = options[key]
-      })
-    },
-    clearVerticalStyle(el) {
-      this.setStyle(el, {
-        height: '0px',
-        marginTop: '0px',
-        marginBottom: '0px',
-        paddingTop: '0px',
-        paddingBottom: '0px',
-        borderTopWidth: '0px',
-        borderBottomWidth: '0px'
-      })
-    },
-    enter(el) {
-      const verticalStyle = {
-        height: getStyle(el, 'height'),
-        marginTop: getStyle(el, 'margin-top'),
-        marginBottom: getStyle(el, 'margin-bottom'),
-        paddingTop: getStyle(el, 'padding-top'),
-        paddingBottom: getStyle(el, 'padding-bottom'),
-        borderTopWidth: getStyle(el, 'border-top-width'),
-        borderBottomWidth: getStyle(el, 'border-bottom-width')
-      }
-      this.clearVerticalStyle(el)
-      el.style.transition = `all 300ms`
-      setTimeout(() => {
-        this.setStyle(el, verticalStyle)
-      }, 0)
-    },
-    leave(el) {
-      this.clearVerticalStyle(el)
     },
     close(id) {
       const msg = this.messages.filter(msg => msg.id === Number(id))[0]

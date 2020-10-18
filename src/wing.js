@@ -5,7 +5,8 @@ import WCol from './packages/col';
 import WMessage from './packages/message';
 import WTabs from './packages/tabs';
 import WTooltip from './packages/tooltip';
-const components = [WButton, WInput, WRow, WCol, WMessage, WTabs, WTooltip];
+import WCollapse from './packages/collapse';
+const components = [WButton, WInput, WRow, WCol, WMessage, WTabs, WTooltip, WCollapse];
 
 const install = function (Vue) {
   components.forEach(component => {
@@ -13,4 +14,4 @@ const install = function (Vue) {
   });
 };
 
-export { install as default, WButton, WInput, WRow, WCol, WMessage, WTabs, WTooltip };
+export { install as default, WButton, WInput, WRow, WCol, WMessage, WTabs, WTooltip, WCollapse };

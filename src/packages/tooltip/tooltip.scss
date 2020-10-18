@@ -1,0 +1,53 @@
+@import '../../styles/index.scss';
+
+$prefix: '.wing-tooltip';
+#{$prefix} {
+  border-radius: $tooltip-border-radius;
+  padding: $tooltip-padding;
+  word-break: break-all;
+  color: #fff;
+  background-color: $tooltip-background;
+
+  &-arrow {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+  }
+
+  &-top {
+    #{$prefix}-arrow {
+      left: 50%;
+      bottom: 0;
+      transform: translate(-50%, 100%);
+      border-top-color: $tooltip-background;
+    }
+  }
+
+  &-left {
+    #{$prefix}-arrow {
+      top: 50%;
+      right: 0;
+      transform: translate(100%, -50%);
+      border-left-color: $tooltip-background;
+    }
+  }
+
+  &-right {
+    #{$prefix}-arrow {
+      top: 50%;
+      left: 0;
+      transform: translate(-100%, -50%);
+      border-right-color: $tooltip-background;
+    }
+  }
+
+  &-bottom {
+    #{$prefix}-arrow {
+      left: 50%;
+      top: 0;
+      transform: translate(-50%, -100%);
+      border-bottom-color: $tooltip-background;
+    }
+  }
+}
