@@ -1,5 +1,5 @@
 <template>
-  <w-button @click.native="onClick">3秒后关闭</w-button>
+  <w-button @click="onClick">5秒后关闭</w-button>
 </template>
 
 <script>
@@ -8,7 +8,8 @@ export default {
   methods: {
     onClick() {
       this.$message.success({
-        content: '3秒后关闭'
+        content: '5秒后关闭',
+        duration: 5000,
       })
     }
   }

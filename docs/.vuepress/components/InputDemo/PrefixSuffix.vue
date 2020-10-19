@@ -17,7 +17,7 @@
 import Vuejs from '@wing-ui/icons-vue/lib/Vuejs'
 import TimesCircle from '@wing-ui/icons-vue/lib/TimesCircle'
 export default {
-  name: 'InputVModelDemo',
+  name: 'PrefixSuffix',
   components: {
     Vuejs,
     TimesCircle

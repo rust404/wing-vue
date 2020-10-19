@@ -5,7 +5,7 @@
 <script>
 import Download from '@wing-ui/icons-vue/lib/Download'
 export default {
-  name: 'ButtonIconDemo',
+  name: 'Icon',
   components: {
     Download
   }

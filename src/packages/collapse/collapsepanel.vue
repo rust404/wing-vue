@@ -59,7 +59,7 @@ export default {
         } else if(!Array.isArray(this.activeKeys)) {
           ret = this.activeKeys ? [this.activeKeys, this.name] : this.name
         } else {
-          ret = this.activeKeys.filter(key => key !== this.name)
+          ret = this.activeKeys.concat(this.name)
         }
       }
       this.$parent.$emit('change', ret)

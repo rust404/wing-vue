@@ -29,3 +29,30 @@ import CheckCircle from '@wing-ui/icons-vue/lib/CheckCircle'
 import CheckCircleRegular from '@wing-ui/icons-vue/lib/CheckCircleRegular'
 ```
 :::
+
+
+## 大小与颜色
+
+<IconDemo/>
+
+```vue
+<template>
+    <Download size="50px" color="red"/>
+</template>
+
+<script>
+import Download from '@wing-ui/icons-vue/lib/Download'
+export default {
+  name: 'IconDemo',
+  components: {
+    Download
+  }
+}
+</script>
+```
+
+## 参数
+| 属性    | 说明   | 类型   | 可选值  | 默认值 |
+| ------ |:-------|:------|:-----| --- |
+| size   | Icon大小 |String|- | - |
+| color  | Icon颜色 |String | - | - |

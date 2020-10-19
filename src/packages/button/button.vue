@@ -1,5 +1,5 @@
 <template>
-  <button :class="className">
+  <button :class="className" @click="$emit('click', $event)">
     <spinner spin class="spinner" v-if="loading"/>
     <slot/>
   </button>
@@ -28,7 +28,7 @@ export default {
     size: {
       type: String,
       validator(prop) {
-        return ['lg', 'sm', ''].indexOf(prop) !== -1
+        return ['lg', 'sm', 'md'].indexOf(prop) !== -1
       }
     },
     loading: Boolean

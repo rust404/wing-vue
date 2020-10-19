@@ -51,8 +51,9 @@ export default {
     size: {
       type: String,
       validator(size) {
-        return ['lg', 'sm', ''].indexOf(size) !== -1
-      }
+        return ['lg', 'sm', 'md'].indexOf(size) !== -1
+      },
+      default: 'md'
     },
     value: String,
     disabled: {
@@ -92,7 +93,7 @@ export default {
     onClear() {
       this.$emit('input', '')
     },
-    onPressEnter() {
+    onPressEnter(e) {
       if (e.keyCode === 13) {
         this.$emit('press-enter', this.value)
       }

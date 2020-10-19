@@ -1,10 +1,10 @@
 <template>
   <div>
-    <w-button @click.native="onClick('success')">成功</w-button>
-    <w-button @click.native="onClick('danger')">危险</w-button>
-    <w-button @click.native="onClick('info')">通知</w-button>
-    <w-button @click.native="onClick('warning')">警告</w-button>
-    <w-button @click.native="onClick('loading')">加载</w-button>
+    <w-button @click="onClick('success')">成功</w-button>
+    <w-button @click="onClick('danger')">危险</w-button>
+    <w-button @click="onClick('info')">通知</w-button>
+    <w-button @click="onClick('warning')">警告</w-button>
+    <w-button @click="onClick('loading')">加载</w-button>
   </div>
 </template>
 
@@ -14,8 +14,7 @@ export default {
   methods: {
     onClick(type) {
       this.$message[type]({
-        content: `${type}`,
-        duration: 3000
+        content: `${type}`
       })
     }
   }

@@ -3,8 +3,9 @@
     name="zoom-in-top"
     class="wing-message"
     tag="ul"
+    :style="{zIndex: globalConfig.zIndex}"
   >
-    <li v-for="item in messages" :key="item.id" class="wing-message-item">
+    <li v-for="item in messages" :key="item.id" class="wing-message-item" :class="item.customClass">
       <span class="wing-message-icon" :class="iconClass(item.type)">
       <component :is="typeMap[item.type]"></component>
     </span>
@@ -43,7 +44,8 @@ export default {
         success: CheckCircle,
         warning: ExclamationCircle,
         info: InfoCircle
-      }
+      },
+      globalConfig: {}
     }
   },
   methods: {
@@ -52,6 +54,9 @@ export default {
         [`wing-message-icon-${type}`]: type
       }
     },
+    setConfig(globalConfig) {
+      this.globalConfig = globalConfig
+    },
     close(id) {
       const msg = this.messages.filter(msg => msg.id === Number(id))[0]
       if (msg) {
@@ -59,17 +64,17 @@ export default {
         msg.onClose && msg.onClose()
       }
     },
-    open({type, content, duration = 3000, onClose}) {
+    open({type, duration = 3000, ...rest}) {
       if (messageType.indexOf(type) === -1) {
         console.error(`message type should be one of ['loading', 'danger', 'warning', 'info', 'success']`)
       }
       const id = messageId++
-      const newMsg = {
+      const globalConfig = typeof this.globalConfig === 'object' ? this.globalConfig : {}
+      const newMsg = Object.assign({}, globalConfig, {
         id,
         type,
-        content,
-        onClose
-      }
+        ...rest
+      })
       this.messages.push(newMsg)
       if (duration) {
         setTimeout(() => {

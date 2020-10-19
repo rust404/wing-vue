@@ -15,8 +15,8 @@ Message.install = function(Vue) {
   const instance = new Ctor().$mount('#' + containerId)
 
   const methods = messageType.reduce((acc, type) => {
-    acc[type] = function ({content, duration, onClose}) {
-      return instance.open({type, content, duration, onClose})
+    acc[type] = function (config) {
+      return instance.open({type, ...config})
     }
     return acc
   }, {})
@@ -24,6 +24,12 @@ Message.install = function(Vue) {
   Vue.prototype.$message = {
     open(config) {
       return instance.open(config)
+    },
+    setConfig(config) {
+      return instance.setConfig(config)
+    },
+    close(id) {
+      return instance.close(id)
     },
     ...methods
   }

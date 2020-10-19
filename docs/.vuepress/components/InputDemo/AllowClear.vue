@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'InputAllowClearDemo',
+  name: 'ClearDemo',
   data() {
     return {
       val: ''

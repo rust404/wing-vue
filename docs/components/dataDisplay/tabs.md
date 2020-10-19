@@ -1,7 +1,9 @@
 # Tabs
 
 ## 基础用法
+<br/>
 <TabsDemo-Base/>
+
 ```vue
 <template>
   <w-tabs v-model="tabKey">
@@ -88,3 +90,21 @@ export default {
 }
 </script>
 ```
+
+## Tabs参数
+| 属性    | 说明   | 类型   | 可选值  | 默认值 |
+| ------ |:-------|:------|:-----| --- |
+| value/v-model| 选中的选项卡的name |String|- | - |
+
+## TabsPane参数
+| 属性    | 说明   | 类型   | 可选值  | 默认值 |
+| ------ |:-------|:------|:-----| --- |
+| label | 选项卡标题 |String|- | - |
+| tabKey | 选项卡键值 |String|- | - |
+| disabled | 是否禁用 |Boolean|- | - |
+
+## TabsPane slot
+| name | 说明 |
+| ------ |:-------|
+| label | 选项卡标题 |
+| default | 选项卡内容 |
