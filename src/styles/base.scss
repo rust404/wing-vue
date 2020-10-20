@@ -115,7 +115,7 @@ strong {
 code,
 kbd,
 samp {
-  font-family: monospace, monospace; /* 1 */
+  font-family: $code-family; /* 1 */
   font-size: 1em; /* 2 */
 }
 

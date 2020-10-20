@@ -12,7 +12,9 @@ Vue.use(Message)
 引入插件后，可通过使用`this.$message.open`方法发送消息，在发送之前，可以通过`this.$message.setConfig`方法来进行全局配置
 
 <br/>
-<MessageDemo-Base/>
+<ClientOnly>
+  <MessageDemo-Base/>
+</ClientOnly>
 
 ```vue {10}
 <template>
@@ -41,7 +43,9 @@ export default {
 ## 停留时长
 默认情况下通知经过3秒后自动关闭，可通过duration属性自定义时间
 
-<MessageDemo-Duration/>
+<ClientOnly>
+  <MessageDemo-Duration/>
+</ClientOnly>
 
 ```vue
 <template>
@@ -67,7 +71,9 @@ export default {
 两种方式都会返回message的id，id一般用于手动关闭消息
 
 <br/>
-<MessageDemo-Types/>
+<ClientOnly>
+  <MessageDemo-Types/>
+</ClientOnly>
 
 ```vue
 <template>
@@ -97,7 +103,9 @@ export default {
 ## 手动关闭
 当`duration`为0时，消息不会自动关闭，可通过`this.$message.close(id)`的方式手动进行关闭
 
-<MessageDemo-Close/>
+<ClientOnly>
+  <MessageDemo-Close/>
+</ClientOnly>
 
 
 ```vue

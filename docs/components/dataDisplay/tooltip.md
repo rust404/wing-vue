@@ -4,7 +4,9 @@
 两种触发方式`hover`和`click` 
 
 <br/>
-<TooltipDemo-Base/>
+<ClientOnly>
+  <TooltipDemo-Base/>
+</ClientOnly>
 
 ```vue
 <template>
@@ -33,7 +35,9 @@ export default {
 
 ## Placement
 可以修改placement属性修改四个方向
-<TooltipDemo-Placement/>
+<ClientOnly>
+  <TooltipDemo-Placement/>
+</ClientOnly>
 
 ```vue
 <template>

@@ -2,20 +2,32 @@ import Message from "./message.vue";
 import './message.scss';
 import {messageType} from './messageType';
 
+const containerId = 'wing-message-container'
+let isMounted = false
+
 Message.install = function(Vue) {
   Vue.component(Message.name, Message)
 
-  const containerId = 'wing-message-container'
-  const container = document.createElement('div')
-  container.id = containerId
-  document.body.appendChild(container)
-
+  function generateContainer() {
+    const container = document.createElement('div')
+    container.id = containerId
+    document.body.appendChild(container)
+    return container
+  }
+  function mountInstance(instance) {
+    const container = generateContainer()
+    instance.$mount(container)
+  }
 
   const Ctor = Vue.extend(Message)
-  const instance = new Ctor().$mount('#' + containerId)
+  const instance = new Ctor()
 
   const methods = messageType.reduce((acc, type) => {
     acc[type] = function (config) {
+      if (!isMounted) {
+        mountInstance(instance)
+        isMounted = true
+      }
       return instance.open({type, ...config})
     }
     return acc
@@ -23,6 +35,10 @@ Message.install = function(Vue) {
 
   Vue.prototype.$message = {
     open(config) {
+      if (!isMounted) {
+        mountInstance(instance)
+        isMounted = true
+      }
       return instance.open(config)
     },
     setConfig(config) {
