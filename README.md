@@ -30,3 +30,13 @@ or
 ```bash
 yarn add @wing-ui/wing-vue
 ```
+
+## 快速上手
+```js
+import Vue from 'vue'
+import WingUI from '@wing-ui/wing-vue'
+
+Vue.use(WingUI)
+```
+
+详细使用请查看[文档](http://rust404.gitee.io/wing-vue-site)
