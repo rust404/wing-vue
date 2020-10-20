@@ -21,6 +21,7 @@ module.exports = {
           children: [
             'guide/install',
             'guide/quickStart',
+            'guide/customize',
           ]
         },
         {

@@ -6,6 +6,7 @@ const {parse} = require('@babel/parser');
 const generate = require('@babel/generator').default;
 const traverse = require('@babel/traverse').default
 const t = require('@babel/types');
+const {createFile} = require('./util')
 
 
 // const componentConfig = {
@@ -180,32 +181,6 @@ function createComponentFiles(config) {
     createTestFile(config)
   ]).then(() => {
     return config
-  })
-}
-
-function createFile(filePath, content) {
-  return new Promise((resolve, reject) => {
-    const dirPath = path.dirname(filePath)
-    // create directory recursively
-    if (!fs.existsSync(dirPath)) {
-      const arr = []
-      let tempPath = path.dirname(filePath)
-      while (tempPath && !fs.existsSync(tempPath)) {
-        const pathArr = tempPath.split(path.sep)
-        arr.push(pathArr.pop())
-        tempPath = pathArr.join(path.sep)
-      }
-      while (arr.length !== 0) {
-        tempPath += '/' + arr.pop()
-        fs.mkdirSync(tempPath)
-      }
-    }
-    fs.writeFile(filePath, content, err => {
-      if (err) {
-        reject(err)
-      }
-      resolve()
-    })
   })
 }
 

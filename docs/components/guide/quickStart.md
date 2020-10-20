@@ -6,7 +6,7 @@
 ```js
 import Vue from 'vue'
 import App from './App.vue'
-import WingUI from 'wing-vue'
+import WingUI from '@wing-ui/wing-vue'
 import '@wing-ui/wing-vue/lib/wing.css'
 
 Vue.config.productionTip = false
