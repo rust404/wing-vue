@@ -20,6 +20,7 @@ WingUI， 一款简洁的Vue2.0 UI框架
 </p>
 
 ## 文档
+http://rust404.gitee.io/wing-vue-site
 
 ## 开始使用
 ```bash
