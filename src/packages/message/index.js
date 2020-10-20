@@ -27,7 +27,6 @@ Message.install = function(Vue) {
     acc[type] = function (config) {
       if (!isMounted()) {
         mountInstance(instance)
-        isMounted = true
       }
       return instance.open({type, ...config})
     }
@@ -38,7 +37,6 @@ Message.install = function(Vue) {
     open(config) {
       if (!isMounted()) {
         mountInstance(instance)
-        isMounted = true
       }
       return instance.open(config)
     },

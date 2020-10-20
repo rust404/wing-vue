@@ -24,6 +24,7 @@
     "createComponent": "node ./build/createComponent.js",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
+    "deploy:docs": "sh ./deploy-docs.sh",
     "test": "jest"
   },
   "keywords": [
