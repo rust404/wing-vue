@@ -3,6 +3,7 @@ module.exports = {
   chainWebpack (config) {
     config.resolve.alias.set('@', path.resolve(__dirname, '../../src'))
   },
+  base: '/wing-vue-site/',
   title: 'Wing UI',
   description: "一个轻量级的Vue UI组件库",
   scss: {

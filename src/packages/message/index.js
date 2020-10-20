@@ -3,8 +3,6 @@ import './message.scss';
 import {messageType} from './messageType';
 
 const containerId = 'wing-message-container'
-let isMounted = false
-
 Message.install = function(Vue) {
   Vue.component(Message.name, Message)
 
@@ -18,13 +16,16 @@ Message.install = function(Vue) {
     const container = generateContainer()
     instance.$mount(container)
   }
+  function isMounted() {
+    return document.querySelector(containerId)
+  }
 
   const Ctor = Vue.extend(Message)
   const instance = new Ctor()
 
   const methods = messageType.reduce((acc, type) => {
     acc[type] = function (config) {
-      if (!isMounted) {
+      if (!isMounted()) {
         mountInstance(instance)
         isMounted = true
       }
@@ -35,7 +36,7 @@ Message.install = function(Vue) {
 
   Vue.prototype.$message = {
     open(config) {
-      if (!isMounted) {
+      if (!isMounted()) {
         mountInstance(instance)
         isMounted = true
       }
