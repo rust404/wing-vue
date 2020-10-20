@@ -24,7 +24,6 @@ import '@wing-ui/icons-vue/lib/icon.css'
 import {messageType} from './messageType';
 import {CollapseTransitionGroup} from '../../transitions/CollapseTransition';
 
-let messageId = 0;
 export default {
   name: 'WMessage',
   components: {
@@ -37,6 +36,7 @@ export default {
   },
   data() {
     return {
+      messageId: 0,
       messages: [],
       typeMap: {
         loading: Spinner,
@@ -68,7 +68,7 @@ export default {
       if (messageType.indexOf(type) === -1) {
         console.error(`message type should be one of ['loading', 'danger', 'warning', 'info', 'success']`)
       }
-      const id = messageId++
+      const id = this.messageId++
       const globalConfig = typeof this.globalConfig === 'object' ? this.globalConfig : {}
       const newMsg = Object.assign({}, globalConfig, {
         id,

@@ -2,13 +2,11 @@ import Message from "./message.vue";
 import './message.scss';
 import {messageType} from './messageType';
 
-const containerId = 'wing-message-container'
 Message.install = function(Vue) {
   Vue.component(Message.name, Message)
 
   function generateContainer() {
     const container = document.createElement('div')
-    container.id = containerId
     document.body.appendChild(container)
     return container
   }
@@ -17,7 +15,7 @@ Message.install = function(Vue) {
     instance.$mount(container)
   }
   function isMounted() {
-    return document.querySelector(containerId)
+    return document.querySelector('.wing-message')
   }
 
   const Ctor = Vue.extend(Message)

@@ -1,5 +1,5 @@
 {
-  "name": "@wing-ui/wing-vue",
+  "name": "wing-vue",
   "version": "0.0.1",
   "description": "Wing，一个轻量级的vue组件库",
   "main": "./lib/wing.umd.js",
