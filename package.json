@@ -1,6 +1,6 @@
 {
-  "name": "wing-vue",
-  "version": "0.0.1",
+  "name": "@wing-ui/wing-vue",
+  "version": "0.0.3",
   "description": "Wing，一个轻量级的vue组件库",
   "main": "./lib/wing.umd.js",
   "module": "./lib/wing.esm.js",
@@ -16,7 +16,7 @@
   "scripts": {
     "clean": "rimraf lib",
     "dist": "npm run clean",
-    "build": "npm run clean && rollup -c ./build/rollup.config.js",
+    "build": "npm run clean && rollup -c ./build/rollup.config.js && node ./build/genStyleEntry.js",
     "build:es": "npm run clean && rollup -c ./build/rollup.es.js",
     "build:umd": "npm run clean && rollup -c ./build/rollup.umd.js",
     "build:iife": "npm run clean && rollup -c ./build/rollup.iife.js",

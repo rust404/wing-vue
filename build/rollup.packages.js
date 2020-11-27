@@ -2,7 +2,6 @@ const scss = require('rollup-plugin-scss')
 const VuePlugin = require('rollup-plugin-vue')
 const BabelPlugin = require('rollup-plugin-babel')
 const commonjs = require('@rollup/plugin-commonjs')
-const replace = require('@rollup/plugin-replace')
 const baseConfig = require('./rollup.base')
 
 const buildConfigs = []
@@ -28,7 +27,6 @@ Object.entries(entry).forEach(([name, path]) => {
     },
     plugins: [
       ...baseConfig.plugins.preVue,
-      replace(baseConfig.plugins.replace),
       VuePlugin({
         ...baseConfig.plugins.vue,
         optimizeSSR: true

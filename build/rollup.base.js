@@ -14,10 +14,6 @@ const baseConfig = {
         },
       }),
     ],
-    replace: {
-      'process.env.NODE_ENV': JSON.stringify('production'),
-      'process.env.ES_BUILD': JSON.stringify('false'),
-    },
     vue: {
       css: false,
       template: {
