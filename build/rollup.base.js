@@ -28,7 +28,11 @@ const baseConfig = {
       ]
     },
   },
-  external: ['vue'],
+  external: [
+    'vue',
+    /@wing-ui\/icons-vue.*/,
+    '@popperjs/core'
+  ],
   output: {
     globals: {
       vue: 'Vue'

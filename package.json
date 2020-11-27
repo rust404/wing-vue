@@ -19,7 +19,6 @@
     "build": "npm run clean && rollup -c ./build/rollup.config.js && node ./build/genStyleEntry.js",
     "build:es": "npm run clean && rollup -c ./build/rollup.es.js",
     "build:umd": "npm run clean && rollup -c ./build/rollup.umd.js",
-    "build:iife": "npm run clean && rollup -c ./build/rollup.iife.js",
     "build:packages": "npm run clean && rollup -c ./build/rollup.packages.js",
     "createComponent": "node ./build/createComponent.js",
     "docs:dev": "vuepress dev docs",
