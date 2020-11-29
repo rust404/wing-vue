@@ -24,7 +24,8 @@
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "deploy:docs": "sh ./deploy-docs.sh",
-    "test": "jest"
+    "test": "jest",
+    "commit": "git-cz"
   },
   "keywords": [
     "wing",
